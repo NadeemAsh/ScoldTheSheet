@@ -27,8 +27,11 @@ client.on("messageCreate", (message) => {
   if (message.author.bot) return;
 
   keywords.map((keyword) => {
+    let keyword_lc = keyword.toLowerCase();
+    let message_lc = message.content.toLowerCase();
+
     // Check if the message content matches a specific pattern
-    if (message.content.includes(keyword)) {
+    if (message_lc.includes(keyword_lc)) {
       message.channel.send(
         `${message.author} SSSHHH! Do not say that again and again`
       );
